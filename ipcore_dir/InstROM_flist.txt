@@ -1,0 +1,17 @@
+# Output products list for <InstROM>
+InstROM/blk_mem_gen_v7_3_readme.txt
+InstROM/doc/blk_mem_gen_v7_3_vinfo.html
+InstROM/doc/pg058-blk-mem-gen.pdf
+InstROM.asy
+InstROM.gise
+InstROM.mif
+InstROM.ngc
+InstROM.sym
+InstROM.v
+InstROM.veo
+InstROM.xco
+InstROM.xise
+InstROM_flist.txt
+InstROM_xmdf.tcl
+_xmsgs/pn_parser.xmsgs
+summary.log

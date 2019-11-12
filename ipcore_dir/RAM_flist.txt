@@ -1,0 +1,17 @@
+# Output products list for <RAM>
+RAM/blk_mem_gen_v7_3_readme.txt
+RAM/doc/blk_mem_gen_v7_3_vinfo.html
+RAM/doc/pg058-blk-mem-gen.pdf
+RAM.asy
+RAM.gise
+RAM.mif
+RAM.ngc
+RAM.sym
+RAM.v
+RAM.veo
+RAM.xco
+RAM.xise
+RAM_flist.txt
+RAM_xmdf.tcl
+_xmsgs/pn_parser.xmsgs
+summary.log

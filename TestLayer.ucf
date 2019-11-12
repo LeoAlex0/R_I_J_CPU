@@ -1,0 +1,22 @@
+NET "clk" LOC = C9;
+NET "rst" LOC = D9;
+
+
+NET "LED[7]" LOC = T11;
+NET "LED[6]" LOC = R11;
+NET "LED[5]" LOC = N11;
+NET "LED[4]" LOC = M11;
+NET "LED[3]" LOC = V15;
+NET "LED[2]" LOC = U15;
+NET "LED[1]" LOC = V16;
+NET "LED[0]" LOC = U16;
+
+
+
+# PlanAhead Generated physical constraints 
+
+NET "clk_100MHz" LOC = V10;
+NET "mux[3]" LOC = T5;
+NET "mux[2]" LOC = V8;
+NET "mux[1]" LOC = T9;
+NET "mux[0]" LOC = T10;

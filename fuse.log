@@ -1,0 +1,42 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o /home/extra-home/leo/IC/R_I_J_CPU/TestBench_isim_beh.exe -prj /home/extra-home/leo/IC/R_I_J_CPU/TestBench_beh.prj work.TestBench work.glbl 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "/home/extra-home/leo/IC/R_I_J_CPU/ipcore_dir/InstROM.v" into library work
+Analyzing Verilog file "/home/extra-home/leo/IC/R_I_J_CPU/SimpleALU.v" into library work
+Analyzing Verilog file "/home/extra-home/leo/IC/R_I_J_CPU/RegHeap.v" into library work
+Analyzing Verilog file "/home/extra-home/leo/IC/R_I_J_CPU/ipcore_dir/RAM.v" into library work
+Analyzing Verilog file "/home/extra-home/leo/IC/R_I_J_CPU/InstGetter.v" into library work
+Analyzing Verilog file "/home/extra-home/leo/IC/R_I_J_CPU/Controller.v" into library work
+Analyzing Verilog file "/home/extra-home/leo/IC/R_I_J_CPU/CPU.v" into library work
+Analyzing Verilog file "/home/extra-home/leo/IC/R_I_J_CPU/TestBench.v" into library work
+Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 84784 KB
+Fuse CPU Usage: 1190 ms
+Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
+Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
+Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
+Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="spart...
+Compiling module InstROM
+Compiling module InstGetter
+Compiling module RegHeap
+Compiling module SimpleALU
+Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
+Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
+Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
+Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="spart...
+Compiling module RAM
+Compiling module Controller
+Compiling module CPU
+Compiling module TestBench
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 8 sub-compilation(s) to finish...
+Compiled 17 Verilog Units
+Built simulation executable /home/extra-home/leo/IC/R_I_J_CPU/TestBench_isim_beh.exe
+Fuse Memory Usage: 648340 KB
+Fuse CPU Usage: 1280 ms
+GCC CPU Usage: 2520 ms
