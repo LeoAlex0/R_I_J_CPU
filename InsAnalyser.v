@@ -20,18 +20,20 @@
 //////////////////////////////////////////////////////////////////////////////////
 module InsAnalyser(
 	input [31:0] IR,
+    output isBranch,
 	output isLoad,
 	output isStore,
 	output isALUR,
-	output isALUImm
+	output isALUImmm
     );
 	 
-	 //IR
-	 wire [5:0] opcode,funct;
+	// IR
+	wire [5:0] opcode,funct;
     wire [4:0] rs,rt,rd,shamt;
-	 assign {opcode,rs,rt,rd,shamt,funct} = IR;
-	 //Controller result
-	 wire [2:0] ALU_OP;
+	assign {opcode,rs,rt,rd,shamt,funct} = IR;
+	
+    // Controller result
+	wire [2:0] ALU_OP;
     wire [1:0] rd_rt_ra_s;
     wire [1:0] f_mem_pc_s;
     wire [1:0] pc_jr_b_ja_s;
@@ -39,15 +41,17 @@ module InsAnalyser(
     wire rt_imm_s;
     wire imme_s;
     wire MemWrite;
-	 //output
-	 assign isLoad = (opcode==6'b100_011)?1'b1:1'b0;
-	 assign isStore =(opcode==6'b101_011)? 1'b1:1'b0;
-	 assign isALUR = (opcode==6'b000_000)? 1'b1:1'b0;
-	 assign isALUImm = ((opcode==6'b001_000)||
-								(opcode==6'b001_100)||
-								(opcode==6'b001_110)||
-								(opcode==6'b001_011))? 1'b1:1'b0;
-	 
+	
+    // Output
+    assign isBranch = ((opcode == 6'b000100) ||
+                        (opcode == 6'b00101)) ? 1'b1 : 1'b0;
+	assign isLoad = (opcode == 6'b100_011)?1'b1:1'b0;
+	assign isStore = (opcode == 6'b101_011)? 1'b1:1'b0;
+	assign isALUR = (opcode == 6'b000_000)? 1'b1:1'b0;
+	assign isALUImm = ((opcode == 6'b001_000)||
+						(opcode == 6'b001_100)||
+						(opcode == 6'b001_110)||
+						(opcode == 6'b001_011))? 1'b1:1'b0;
 	 //controller
 	Controller controller(
         .opcode(opcode),

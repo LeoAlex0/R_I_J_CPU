@@ -35,7 +35,7 @@ module EXSeg(
     
     reg [31:0] A, B, F, IR;
     reg [2:0] ALU_OP;
-    reg ZF, OF;
+    reg ZF, OF, isALUR, isBranch;
     
     // ALU
     SimpleALU alu (
@@ -46,6 +46,13 @@ module EXSeg(
 		.OF(OF),
         .F(F)
     );
+
+    // Instruction Analyzer
+    InsAnalyser analyser(
+		.IR(IR),
+        .isBranch(isBranch),
+		.isALUR(isALUR),
+	 );
 	
     always @ (negedge clk, posedge rst) begin
         if (rst) begin
@@ -56,14 +63,14 @@ module EXSeg(
         end
         
         // MUX-2
-        if ((IR[31:26] == 6'b000100) | (IRi[31:26] == 6'b00101)) begin     // branch
+        if (isBranch) begin     // branch
             A <= NPCi;
         end else begin
             A <= Ai;
         end
        
         // MUX-3
-        if (IR[31:26] == 6'b000000) begin     // R: opcode == 0
+        if (isALUR) begin     // R: opcode == 0
             B <= Bi;
         end else begin
             B <= Immi;
@@ -77,6 +84,5 @@ module EXSeg(
             {cond, ALUo, Bo, IRo} <= {(Ai == 0), F, Bi, IR};
         end
     end
-	
 
 endmodule
