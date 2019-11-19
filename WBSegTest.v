@@ -22,7 +22,7 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module WBRegTest;
+module WBSegTest;
 
 	// Inputs
 	reg clk;
@@ -37,7 +37,7 @@ module WBRegTest;
 	wire [4:0] WB_Addr;
 
 	// Instantiate the Unit Under Test (UUT)
-	WBReg uut (
+	WBSeg uut (
 		.clk(clk), 
 		.rst(rst), 
 		.LMD(LMD), 
