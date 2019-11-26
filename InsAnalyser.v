@@ -24,7 +24,7 @@ module InsAnalyser(
 	output isLoad,
 	output isStore,
 	output isALUR,
-	output isALUImmm
+	output isALUImm
     );
 	 
 	// IR
@@ -45,13 +45,13 @@ module InsAnalyser(
     // Output
     assign isBranch = ((opcode == 6'b000100) ||
                         (opcode == 6'b00101)) ? 1'b1 : 1'b0;
-	assign isLoad = (opcode == 6'b100_011)?1'b1:1'b0;
-	assign isStore = (opcode == 6'b101_011)? 1'b1:1'b0;
-	assign isALUR = (opcode == 6'b000_000)? 1'b1:1'b0;
-	assign isALUImm = ((opcode == 6'b001_000)||
-						(opcode == 6'b001_100)||
-						(opcode == 6'b001_110)||
-						(opcode == 6'b001_011))? 1'b1:1'b0;
+	assign isLoad = (opcode == 6'b100_011)?1'b1 : 1'b0;
+	assign isStore = (opcode == 6'b101_011)? 1'b1 : 1'b0;
+	assign isALUR = (opcode == 6'b000_000)? 1'b1 : 1'b0;
+	assign isALUImm = ((opcode == 6'b001_000) ||
+						(opcode == 6'b001_100) ||
+						(opcode == 6'b001_110) ||
+						(opcode == 6'b001_011)) ? 1'b1 : 1'b0;
 	 //controller
 	Controller controller(
         .opcode(opcode),
