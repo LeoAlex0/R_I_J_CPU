@@ -61,26 +61,14 @@ module MEMSeg(
 	 );
 	 
 	 
-	 //counter
-	 wire i_can_write;
-	 assign i_can_write = (i==max-1)?1'b1:1'b0;
-	 integer i = 0;
-	 integer max = 3;
-	 
 	 //control
 	 always@(negedge clk or posedge rst) begin
 		if(rst) begin
-			i=0;
 			B=0;
 			ALUo_In=0;
 			IR=0;
 		end
 		else begin
-			i=i+1;
-			if(i>=max) begin
-				i=0;
-			end
-			
 			if(!clk)begin
 				B=B_i;
 				ALUo_In=ALUo_In_i;
@@ -96,7 +84,7 @@ module MEMSeg(
 	
 	 RAM memory (
         .clka(~clk), // input clka
-        .wea(isStore&i_can_write), // input [0 : 0] wea
+        .wea(isStore), // input [0 : 0] wea
         .addra(ALUo_In[15:2]), // input [13 : 0] addra
         .dina(B), // input [31 : 0] dina
         .douta(LMD) // output [31 : 0] douta

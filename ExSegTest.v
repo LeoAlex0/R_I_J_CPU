@@ -38,7 +38,7 @@ module ExSegTest;
 	wire [31:0] ALUo;
 	wire [31:0] Bo;
 	wire [31:0] IRo;
-
+	
 	// Instantiate the Unit Under Test (UUT)
 	EXSeg uut (
 		.clk(clk), 
@@ -53,7 +53,9 @@ module ExSegTest;
 		.Bo(Bo), 
 		.IRo(IRo)
 	);
-
+	
+	always #10 clk = ~clk;
+	
 	initial begin
 		// Initialize Inputs
 		clk = 0;

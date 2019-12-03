@@ -44,15 +44,28 @@ module IFSegTest;
 		.IR(IR)
 	);
 
+	always #10 clk = ~clk;
+	always #100 cond = ~cond;
+
 	initial begin
 		// Initialize Inputs
 		clk = 0;
 		rst = 0;
 		cond = 0;
 		condNPC = 0;
-
 		// Wait 100 ns for global reset to finish
 		#100;
+		condNPC = 1;
+		#100;
+		condNPC = 12;
+		#100;
+		condNPC = 123;
+		#100;
+		condNPC = 12345;
+		#100;
+		condNPC = 0;
+		#100;
+		condNPC = 2;
         
 		// Add stimulus here
 

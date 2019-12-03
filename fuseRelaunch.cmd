@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/extra-home/leo/IC/R_I_J_CPU/TestBench_isim_beh.exe" -prj "/home/extra-home/leo/IC/R_I_J_CPU/TestBench_beh.prj" "work.TestBench" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "E:/MyProjects/ISE/R_I_J_CPU/IDSegTest_isim_beh.exe" -prj "E:/MyProjects/ISE/R_I_J_CPU/IDSegTest_beh.prj" "work.IDSegTest" "work.glbl" 

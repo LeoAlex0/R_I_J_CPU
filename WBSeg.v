@@ -63,29 +63,18 @@ module WBSeg(
 	 assign dontWriteInOtherIns = ~(isALUR|isALUImm|isLoadStore); //disable write_sign in other inst
 	 assign WB_Data = (isLoadStore)?LMD:ALUo;//MUX4
 	 assign WB_Addr = (useRt)?rt:rd;
-	 assign WB_Write = ~dontWriteInOtherIns&i_can_write;
+	 assign WB_Write = ~dontWriteInOtherIns;
 	 
-	 //counter
-	 wire i_can_write;
-	 assign i_can_write = (i==max-1)?1'b1:1'b0;
-	 integer i = 0;
-	 integer max = 4;
 	 
 	 //control
 	 always@(negedge clk or posedge rst) begin
 	   if(rst) begin
-			i=0;
 			LMD = 0;
 			ALUo = 0;
 			IR = 0;
 			cond = 1'b0;
 		end
 		else begin
-			i=i+1;
-			if(i>=max) begin
-				i=0;
-			end
-			
 			if(!clk)begin
 				LMD=LMD_i;
 				ALUo=ALUo_i;

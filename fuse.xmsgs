@@ -5,5 +5,14 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="604" delta="unknown" >"E:/MyProjects/ISE/R_I_J_CPU/IDSeg.v" Line 62: Module instantiation should have an instance name
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"E:/MyProjects/ISE/R_I_J_CPU/IDSeg.v" Line 62: Port <arg fmt="%s" index="1">ZF</arg> is not connected to this instance
+</msg>
+
+<msg type="error" file="Simulator" num="793" delta="unknown" >Unable to elaborate instantiated module <arg fmt="%s" index="1">Controller</arg>
+</msg>
+
 </messages>
 
