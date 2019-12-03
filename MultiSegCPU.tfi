@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+MultiSegCPU instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .ZF(ZF), 
+    .OF(OF), 
+    .F(F), 
+    .Mem(Mem), 
+    .PC(PC)
+    );
+
+

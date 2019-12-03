@@ -29,6 +29,7 @@ module EXSeg(
     input [31:0] Immi,
     output reg cond,
     output reg [31:0] ALUo,
+    output reg ZFo, OFo,
     output reg [31:0] Bo,
     output reg [31:0] IRo
     );
@@ -48,15 +49,15 @@ module EXSeg(
     );
 
     // Instruction Analyzer
-    InsAnalyser analyser(
-		.IR(IR),
-        .isBranch(isBranch),
-		.isALUR(isALUR),
-	 );
-	
+    
+    InsAnalyser analyser_inst (
+        .IR(IR), 
+        .isBranch(isBranch), 
+        .isALUR(isALUR)
+    );
+   
     always @ (negedge clk, posedge rst) begin
         if (rst) begin
-            rst <= 0;
             IR <= 0;
         end else begin
             IR <= IRi;
@@ -79,9 +80,9 @@ module EXSeg(
 
     always @ (posedge clk, posedge rst) begin
         if (rst) begin
-            {cond, ALUo, Bo, IRo} <= 0;
+            {cond, ALUo, ZFo, OFo, Bo, IRo} <= 0;
         end else begin
-            {cond, ALUo, Bo, IRo} <= {(Ai == 0), F, Bi, IR};
+            {cond, ALUo, ZFo, OFo, Bo, IRo} <= {(Ai == 0), F, ZF, OF, Bi, IR};
         end
     end
 

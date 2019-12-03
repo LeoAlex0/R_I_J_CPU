@@ -1,0 +1,16 @@
+
+
+
+// Instantiate the module
+MEMSeg instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .B_i(B_i), 
+    .ALUo_In_i(ALUo_In_i), 
+    .IR_i(IR_i), 
+    .ALUo_Out(ALUo_Out), 
+    .LMD(LMD), 
+    .IR_Out(IR_Out)
+    );
+
+

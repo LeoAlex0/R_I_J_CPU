@@ -1,0 +1,19 @@
+
+
+
+// Instantiate the module
+EXSeg instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .IRi(IRi), 
+    .NPCi(NPCi), 
+    .Ai(Ai), 
+    .Bi(Bi), 
+    .Immi(Immi), 
+    .cond(cond), 
+    .ALUo(ALUo), 
+    .Bo(Bo), 
+    .IRo(IRo)
+    );
+
+

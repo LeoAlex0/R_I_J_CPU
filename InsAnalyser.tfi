@@ -1,0 +1,14 @@
+
+
+
+// Instantiate the module
+InsAnalyser instance_name (
+    .IR(IR), 
+    .isBranch(isBranch), 
+    .isLoad(isLoad), 
+    .isStore(isStore), 
+    .isALUR(isALUR), 
+    .isALUImm(isALUImm)
+    );
+
+
