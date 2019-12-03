@@ -22,6 +22,18 @@ module MultiSegCPU(
     input clk,
     input rst
     );
+    wire [31:0] IR[4],NPC[2],A,B[2],Imm,ALUo,MemData;
+    wire Cond,RegWrite;
 
+    IFSeg (
+    );
+    IDSeg(
+    );
+    ExSeg(
+    );
+    MemSeg(
+    );
+    WBSeg(
+    );
 
 endmodule
