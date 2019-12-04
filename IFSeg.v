@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module IFSeg(
     input clk,
-	 input rst,
+	input rst,
     input cond,
     input [31:0] condNPC,
     output [31:0] NPC,

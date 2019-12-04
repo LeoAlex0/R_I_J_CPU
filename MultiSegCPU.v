@@ -19,21 +19,20 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module MultiSegCPU(
-    input clk,
+    input clk, // 全局时钟
     input rst
     );
-    wire [31:0] IR[4],NPC[2],A,B[2],Imm,ALUo,MemData;
+    wire [31:0] IR[4],NPC[2],A,B[2],Imm,ALUo,MemData,CondPC,WBVal;
+    wire [4:0] WBAddr;
     wire Cond,RegWrite;
+    
+    reg clks[5]; // 每一段的时钟
+    reg [31:0] 
+    
+    IFSeg getter(
+        .clk(clks[0]),
+        .rst(rst),
 
-    IFSeg (
-    );
-    IDSeg(
-    );
-    ExSeg(
-    );
-    MemSeg(
-    );
-    WBSeg(
     );
 
 endmodule
