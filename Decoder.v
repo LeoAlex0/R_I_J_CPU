@@ -20,11 +20,12 @@ module Decoder(
     
     assign {opcode,func,rs,rt,rd,shamt,func} = inst;
 
-    assign IsR  = opcode == 6'b0;           // R型指令opcode部分全0
-    assign IsI  = opcode[5:3] == 3'b1 || opcode[5:2] == 4'b1 // I型指令
-    assign IsJ  = opcode[5:1] == 5'b1       // J型指令
-    assign IsLd = opcode == 6'b100_011      // lw
-    assign IsSt = opcode == 6'b101_011      // sw
+    assign IsR  = opcode == 6'b0;                   // R型指令opcode部分全0
+    assign IsI  = opcode[5:3] == 3'b1 
+        || opcode[5:2] == 4'b1 || IsLd || IdSt;     // I型指令
+    assign IsJ  = opcode[5:1] == 5'b1               // J型指令
+    assign IsLd = opcode == 6'b100_011              // lw
+    assign IsSt = opcode == 6'b101_011              // sw
     assign imme = (IsI || IsLD || IsSt) ? {(IsLD || IsSt || opcode == 6'b001_000)?16{inst[15]}:16'b0,inst[15:0]} : 32'b0;       // 补齐的imme，0占位
     assign read[0] = !IsJ ? rs : 5'b0;
     assign read[1] = !IsJ ? rt : 5'b0;
@@ -47,7 +48,7 @@ module Decoder(
                 3'b011:  aluOp = 3'b110;                 // sltiu
                 default: aluOp = 3'b000;                 // default: add
             endcase
-        else if (opcode[5:2] == 4'b1) aluOp = 3'b010;
+        else if (opcode[5:2] == 4'b1) aluOp = 3'b010;    // 控制类I型指令，异或
         else aluOP = 3'b000;
     end
 
