@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/IDSegTest_isim_beh.exe" -prj "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/IDSegTest_beh.prj" "work.IDSegTest" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTest_isim_beh.exe" -prj "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTest_beh.prj" "work.MultiSegCPUTest" "work.glbl" 

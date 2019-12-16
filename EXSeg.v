@@ -32,23 +32,43 @@ module EXSeg(
     output ZFo, OFo,
     output [31:0] Bo,
     output [31:0] IRo
+    
+    //output [2:0] ALU_OP,
+    //output [5:0] opcode, funct
     );
     
     reg [31:0] A, B, IR;
-    reg [2:0] ALU_OP;
+    wire [2:0] ALU_OP;
+    wire [5:0] opcode, funct;
     wire isALUR, isBranch;
     
     initial begin
         A = 32'b0;
         B = 32'b0;
         IR = 32'b0;
-        ALU_OP = 3'b0;
     end
     
     assign Bo = B;
     assign IRo = IR;
     
-    // ALU
+    // Instruction Analyzer
+    InsAnalyser analyser_inst (
+        .IR(IR), 
+        .opcode(opcode),
+        .funct(funct),
+        .isBranch(isBranch),
+        .isALUR(isALUR)
+    );
+    
+    // Controller
+    Controller ctrl (
+        .opcode(opcode),
+        .funct(funct),
+        .ZF(0),
+        .ALU_OP(ALU_OP)
+    );
+    
+     // ALU
     SimpleALU alu (
         .ALU_OP(ALU_OP),
         .A(A),
@@ -58,17 +78,11 @@ module EXSeg(
         .F(ALUo)
     );
 
-    // Instruction Analyzer
-    InsAnalyser analyser_inst (
-        .IR(IR), 
-        .isBranch(isBranch),
-        .isALUR(isALUR)
-    );
    
     assign cond = (Ai == 0 ? 1'b1 : 1'b0);
    
     always @ (negedge clk) begin
-        if (!rst) begin
+        //if (!rst) begin
             IR <= IRi;
        
             // MUX-2
@@ -86,7 +100,7 @@ module EXSeg(
             end else begin
                 B <= Immi;
             end
-        end
+        //end
     end
 
 endmodule

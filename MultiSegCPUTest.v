@@ -57,12 +57,7 @@ module MultiSegCPUTest;
 		// Add stimulus here
 	end
     
-    integer i;
-    always @ (*) begin
-        for (i = 0; i < 100; i = i + 1) begin
-            #10; clk = ~clk;
-        end
-    end
+    always #10 clk = ~clk;
       
 endmodule
 

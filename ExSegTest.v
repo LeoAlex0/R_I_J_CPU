@@ -38,6 +38,9 @@ module ExSegTest;
 	wire [31:0] ALUo;
 	wire [31:0] Bo;
 	wire [31:0] IRo;
+    
+    //wire [2:0] ALU_OP;
+    //wire [5:0] opcode, funct;
 	
 	// Instantiate the Unit Under Test (UUT)
 	EXSeg uut (
@@ -46,7 +49,7 @@ module ExSegTest;
 		.IRi(IRi), 
 		.NPCi(NPCi), 
 		.Ai(Ai), 
-		.Bi(Bi), 
+		.Bi(Bi),
 		.Immi(Immi), 
 		.cond(cond), 
 		.ALUo(ALUo), 
@@ -54,6 +57,11 @@ module ExSegTest;
         .OFo(OFo),
 		.Bo(Bo), 
 		.IRo(IRo)
+        
+        
+        //.ALU_OP(ALU_OP),
+        //.opcode(opcode),
+        //.funct(funct)
 	);
 	
 	always #10 clk = ~clk;
@@ -71,8 +79,13 @@ module ExSegTest;
 		// Wait 100 ns for global reset to finish
 		#100;
         
+        
+        
 		// Add stimulus here
-
+        IRi = 32'b000000_00000_00000_00000_00000_100000;    // Add
+        Ai = 32'b00000000_00000000_00000000_00000001;
+        Bi = 32'b00000000_00000000_00000000_00000011;
+        
 	end
       
 endmodule
