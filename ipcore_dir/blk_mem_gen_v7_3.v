@@ -46,15 +46,15 @@ module blk_mem_gen_v7_3(
 
 input clka;
 input [0 : 0] wea;
-input [4 : 0] addra;
+input [5 : 0] addra;
 input [31 : 0] dina;
 output [31 : 0] douta;
 
 // synthesis translate_off
 
   BLK_MEM_GEN_V7_3 #(
-    .C_ADDRA_WIDTH(5),
-    .C_ADDRB_WIDTH(5),
+    .C_ADDRA_WIDTH(6),
+    .C_ADDRB_WIDTH(6),
     .C_ALGORITHM(1),
     .C_AXI_ID_WIDTH(4),
     .C_AXI_SLAVE_TYPE(0),
@@ -89,8 +89,8 @@ output [31 : 0] douta;
     .C_MEM_TYPE(0),
     .C_MUX_PIPELINE_STAGES(0),
     .C_PRIM_TYPE(1),
-    .C_READ_DEPTH_A(32),
-    .C_READ_DEPTH_B(32),
+    .C_READ_DEPTH_A(64),
+    .C_READ_DEPTH_B(64),
     .C_READ_WIDTH_A(32),
     .C_READ_WIDTH_B(32),
     .C_RST_PRIORITY_A("CE"),
@@ -102,14 +102,14 @@ output [31 : 0] douta;
     .C_USE_BRAM_BLOCK(0),
     .C_USE_BYTE_WEA(0),
     .C_USE_BYTE_WEB(0),
-    .C_USE_DEFAULT_DATA(0),
+    .C_USE_DEFAULT_DATA(1),
     .C_USE_ECC(0),
     .C_USE_SOFTECC(0),
     .C_WEA_WIDTH(1),
     .C_WEB_WIDTH(1),
-    .C_WRITE_DEPTH_A(32),
-    .C_WRITE_DEPTH_B(32),
-    .C_WRITE_MODE_A("WRITE_FIRST"),
+    .C_WRITE_DEPTH_A(64),
+    .C_WRITE_DEPTH_B(64),
+    .C_WRITE_MODE_A("READ_FIRST"),
     .C_WRITE_MODE_B("WRITE_FIRST"),
     .C_WRITE_WIDTH_A(32),
     .C_WRITE_WIDTH_B(32),

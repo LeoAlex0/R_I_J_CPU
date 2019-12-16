@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Tue Dec 03 03:34:04 2019
+# Date: Mon Dec 16 17:38:35 2019
 #
 ##############################################################
 #
@@ -46,7 +46,7 @@ CSET axi_id_width=4
 CSET axi_slave_type=Memory_Slave
 CSET axi_type=AXI4_Full
 CSET byte_size=9
-CSET coe_file=E:\MyProjects\ISE\R_I_J_CPU\R_CPU_Test.coe
+CSET coe_file=C:\Users\codgi\Documents\GitHub\R_I_J_CPU\R_CPU_Test.coe
 CSET collision_warnings=ALL
 CSET component_name=blk_mem_gen_v7_3
 CSET disable_collision_warnings=false
@@ -57,12 +57,12 @@ CSET enable_32bit_address=false
 CSET enable_a=Always_Enabled
 CSET enable_b=Always_Enabled
 CSET error_injection_type=Single_Bit_Error_Injection
-CSET fill_remaining_memory_locations=false
+CSET fill_remaining_memory_locations=true
 CSET interface_type=Native
 CSET load_init_file=true
 CSET mem_file=no_Mem_file_loaded
 CSET memory_type=Single_Port_RAM
-CSET operating_mode_a=WRITE_FIRST
+CSET operating_mode_a=READ_FIRST
 CSET operating_mode_b=WRITE_FIRST
 CSET output_reset_value_a=0
 CSET output_reset_value_b=0
@@ -97,7 +97,7 @@ CSET use_regcea_pin=false
 CSET use_regceb_pin=false
 CSET use_rsta_pin=false
 CSET use_rstb_pin=false
-CSET write_depth_a=32
+CSET write_depth_a=64
 CSET write_width_a=32
 CSET write_width_b=32
 # END Parameters
@@ -105,4 +105,4 @@ CSET write_width_b=32
 MISC pkg_timestamp=2012-11-19T16:22:25Z
 # END Extra information
 GENERATE
-# CRC: d66bf51d
+# CRC: fe529dea

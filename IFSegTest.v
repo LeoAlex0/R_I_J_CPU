@@ -43,7 +43,7 @@ module IFSegTest;
         .stall(stall),
 		.condNPC(condNPC), 
 		.NPC(NPC), 
-		.IR(IR)
+		.IRo(IR)
 	);
 
 	always #10 clk = ~clk;

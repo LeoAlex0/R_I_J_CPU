@@ -90,7 +90,7 @@ ENTITY blk_mem_gen_v7_3_exdes IS
       --Inputs - Port A
   
     WEA            : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA          : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+    ADDRA          : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
   
     DINA           : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
   
@@ -117,7 +117,7 @@ ARCHITECTURE xilinx OF blk_mem_gen_v7_3_exdes IS
       --Port A
   
     WEA        : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA      : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+    ADDRA      : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
   
     DINA       : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
   
