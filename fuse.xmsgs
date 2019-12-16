@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/IDSeg.v" Line 64: Port <arg fmt="%s" index="1">ZF</arg> is not connected to this instance
+</msg>
+
 </messages>
 

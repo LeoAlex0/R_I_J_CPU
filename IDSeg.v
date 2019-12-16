@@ -61,7 +61,7 @@ module IDSeg(
         .dataB(B)
     );
 
-    Controller (
+    Controller ctrl (
         .opcode(IR[31:26]),
         .funct(IR[5:0]),
         .imm_s(imm_s)
