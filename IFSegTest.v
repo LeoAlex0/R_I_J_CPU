@@ -34,6 +34,7 @@ module IFSegTest;
 	// Outputs
 	wire [31:0] NPC;
 	wire [31:0] IR;
+    wire [31:0] PC;
 
 	// Instantiate the Unit Under Test (UUT)
 	IFSeg uut (
@@ -43,7 +44,8 @@ module IFSegTest;
         .stall(stall),
 		.condNPC(condNPC), 
 		.NPC(NPC), 
-		.IRo(IR)
+		.IRo(IR),
+        .PCo(PC)
 	);
 
 	always #10 clk = ~clk;

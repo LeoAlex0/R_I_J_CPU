@@ -28,7 +28,7 @@ module InstGetter(
     );
     
     initial PC <= 0;
-    assign nextPC = PC+4;
+    assign nextPC = PC + 4;
 
     InstROM rom (
         .clka(clk), // input clka

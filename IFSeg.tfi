@@ -9,7 +9,8 @@ IFSeg instance_name (
     .stall(stall), 
     .condNPC(condNPC), 
     .NPC(NPC), 
-    .IR(IR)
+    .IRo(IRo), 
+    .PCo(PCo)
     );
 
 
