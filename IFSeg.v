@@ -18,25 +18,33 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+
 module IFSeg(
     input clk,
-	 input rst,
+	input rst,
     input cond,
+    input stall,
     input [31:0] condNPC,
     output [31:0] NPC,
-    output [31:0] IR
+    output [31:0] IRo,
+    output [31:0] PCo
     );
-	 
-	 wire [31:0] realNPC,nextPC;
-	 assign realNPC = cond ? nextPC : condNPC;
-	 assign NPC = realNPC;
-	 
-	 InstGetter instMem(
-		.clk(clk),
-		.rst(rst),
-		.newPC(realNPC),
-		.inst(IR),
-		.nextPC(nextPC)
-	 );
+	
+    wire [31:0] IR;
+    wire [31:0] realNPC,nextPC;
+    wire clk1;
+    assign realNPC = cond ? condNPC : nextPC;
+    assign NPC = realNPC;
+    assign clk1 = stall ? 1'b1 : clk;
+    assign IRo = stall ? 32'b0 : IR;
+
+    InstGetter instMem(
+        .clk(clk1),
+        .rst(rst),
+        .newPC(realNPC),
+        .inst(IR),
+        .nextPC(nextPC),
+        .PC(PCo)
+    );
 
 endmodule

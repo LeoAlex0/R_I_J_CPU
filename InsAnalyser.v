@@ -20,6 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 module InsAnalyser(
 	input [31:0] IR,
+    output [5:0] opcode,
+    output [5:0] funct,
+    output [4:0] rs,
+    output [4:0] rt,
+    output [4:0] rd,
+    output [4:0] shamt,
     output isBranch,
 	output isLoad,
 	output isStore,
@@ -28,9 +34,7 @@ module InsAnalyser(
     );
 	 
 	// IR
-	wire [5:0] opcode,funct;
-    wire [4:0] rs,rt,rd,shamt;
-	assign {opcode,rs,rt,rd,shamt,funct} = IR;
+	assign {opcode, rs, rt, rd, shamt, funct} = IR;
 	
     // Controller result
 	wire [2:0] ALU_OP;

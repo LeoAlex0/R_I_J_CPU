@@ -28,6 +28,7 @@ module IFSegTest;
 	reg clk;
 	reg rst;
 	reg cond;
+    reg stall;
 	reg [31:0] condNPC;
 
 	// Outputs
@@ -39,6 +40,7 @@ module IFSegTest;
 		.clk(clk), 
 		.rst(rst), 
 		.cond(cond), 
+        .stall(stall),
 		.condNPC(condNPC), 
 		.NPC(NPC), 
 		.IR(IR)
@@ -52,6 +54,7 @@ module IFSegTest;
 		clk = 0;
 		rst = 0;
 		cond = 0;
+        stall = 0;
 		condNPC = 0;
 		// Wait 100 ns for global reset to finish
 		#100;
@@ -66,6 +69,21 @@ module IFSegTest;
 		condNPC = 0;
 		#100;
 		condNPC = 2;
+        
+        #100;
+        stall = 1;
+		condNPC = 1;
+		#100;
+		condNPC = 12;
+		#100;
+		condNPC = 123;
+		#100;
+		condNPC = 12345;
+		#100;
+		condNPC = 0;
+		#100;
+		condNPC = 2;
+
         
 		// Add stimulus here
 

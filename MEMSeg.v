@@ -62,27 +62,23 @@ module MEMSeg(
 	 
 	 
 	 //control
-	 always@(negedge clk or posedge rst) begin
-		if(rst) begin
-			B=0;
-			ALUo_In=0;
-			IR=0;
-		end
-		else begin
-			if(!clk)begin
-				B=B_i;
-				ALUo_In=ALUo_In_i;
-				IR=IR_i;
-			end
-			else begin
-				dev_null=1'b0;
-			end
-		end
-	 end
+	 always @ (negedge clk or posedge rst) begin
+		if (rst) begin
+			B <= 0;
+			ALUo_In <= 0;
+			IR <= 0;
+		end else begin
+            if (!clk) begin
+				B <= B_i;
+				ALUo_In <= ALUo_In_i;
+				IR <= IR_i;
+            end else begin
+				dev_null <= 1'b0;
+            end
+        end
+	end
 	 
-	
-	
-	 RAM memory (
+    RAM memory (
         .clka(~clk), // input clka
         .wea(isStore), // input [0 : 0] wea
         .addra(ALUo_In[15:2]), // input [13 : 0] addra

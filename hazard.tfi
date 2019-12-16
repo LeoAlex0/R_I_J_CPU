@@ -1,0 +1,11 @@
+
+
+
+// Instantiate the module
+hazard instance_name (
+    .IR_IF(IR_IF), 
+    .IR_ID(IR_ID), 
+    .hasHazard(hasHazard)
+    );
+
+

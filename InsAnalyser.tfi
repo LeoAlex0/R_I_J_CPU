@@ -4,6 +4,12 @@
 // Instantiate the module
 InsAnalyser instance_name (
     .IR(IR), 
+    .opcode(opcode), 
+    .funct(funct), 
+    .rs(rs), 
+    .rt(rt), 
+    .rd(rd), 
+    .shamt(shamt), 
     .isBranch(isBranch), 
     .isLoad(isLoad), 
     .isStore(isStore), 

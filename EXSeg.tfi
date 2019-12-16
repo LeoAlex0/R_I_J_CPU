@@ -12,6 +12,8 @@ EXSeg instance_name (
     .Immi(Immi), 
     .cond(cond), 
     .ALUo(ALUo), 
+    .ZFo(ZFo), 
+    .OFo(OFo), 
     .Bo(Bo), 
     .IRo(IRo)
     );

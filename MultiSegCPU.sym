@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="MultiSegCPU">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2019-12-3T4:21:12</timestamp>
+    <timestamp>2019-12-16T7:57:17</timestamp>
     <attr value="MultiSegCPU" name="VeriModel" />
     <pin polarity="Input" x="0" y="-96" name="clk" />
     <pin polarity="Input" x="0" y="-32" name="rst" />

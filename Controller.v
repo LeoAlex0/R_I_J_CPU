@@ -34,7 +34,7 @@ module Controller(
 );
     always @(*) begin
         casex (opcode)
-            6'b000_000 : begin //R
+            6'b000_000: begin //R
                 {w_r_s,w_r_data_s,rt_imm_s,MemWrite} = 0;
                 imm_s = 1'bx;
                 WriteReg = 1;

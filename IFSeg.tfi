@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+IFSeg instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .cond(cond), 
+    .stall(stall), 
+    .condNPC(condNPC), 
+    .NPC(NPC), 
+    .IR(IR)
+    );
+
+
