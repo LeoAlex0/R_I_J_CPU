@@ -92,7 +92,7 @@ module TestLayer(
         .BTN_Out(clk_out)
     );
     
-    CPU cpu(
+    MultiSegCPU cpu(
         .clk(clk_out),
         .rst(rst),
         .F(F),

@@ -34,7 +34,7 @@ module ExSegTest;
 	reg [31:0] Immi;
 
 	// Outputs
-	wire cond;
+	wire cond, ZFo, OFo;
 	wire [31:0] ALUo;
 	wire [31:0] Bo;
 	wire [31:0] IRo;
@@ -50,6 +50,8 @@ module ExSegTest;
 		.Immi(Immi), 
 		.cond(cond), 
 		.ALUo(ALUo), 
+        .ZFo(ZFo),
+        .OFo(OFo),
 		.Bo(Bo), 
 		.IRo(IRo)
 	);

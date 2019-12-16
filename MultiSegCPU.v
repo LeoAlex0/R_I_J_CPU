@@ -24,7 +24,7 @@ module MultiSegCPU(
     input rst,
     output ZF,
     output OF,
-    output [31:0] ALUo_EX,
+    output [31:0] F,
     output [31:0] Mem,
     output [31:0] PC
     );
@@ -34,6 +34,7 @@ module MultiSegCPU(
     wire [31:0] A_ID, B_ID, Imm_ID, B_EX, ALUo_EX, ALUo_MEM, LMD_MEM;
     wire [4:0] WB_Addr;
     wire cond_EX, cond_WB, WBFlag, hasHazard;
+    assign F = ALUo_EX;
     
     // Check and process hazards
     hazard hzd (
