@@ -36,6 +36,10 @@ module IDSeg(
     
     wire imm_s;
     reg [31:0] NPC;
+    
+    initial begin
+        NPC <= 32'b0;
+    end
 
     always @ (negedge clk, posedge rst) begin
         if (rst) begin

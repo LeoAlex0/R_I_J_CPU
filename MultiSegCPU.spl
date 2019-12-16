@@ -4,6 +4,7 @@ rst
 [Outputs]
 ZF
 OF
+hasHazard
 =F[31:0]=
 =Mem[31:0]=
 =PC[31:0]=

@@ -78,7 +78,6 @@ module EXSeg(
         .F(ALUo)
     );
 
-   
     assign cond = (Ai == 0 ? 1'b1 : 1'b0);
    
     always @ (negedge clk) begin

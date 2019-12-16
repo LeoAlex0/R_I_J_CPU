@@ -34,6 +34,8 @@ module MultiSegCPUTest;
 	wire [31:0] F;
 	wire [31:0] Mem;
 	wire [31:0] PC;
+    
+    wire hasHazard;
 
 	// Instantiate the Unit Under Test (UUT)
 	MultiSegCPU uut (
@@ -43,7 +45,8 @@ module MultiSegCPUTest;
 		.OF(OF), 
 		.F(F), 
 		.Mem(Mem), 
-		.PC(PC)
+		.PC(PC),
+        .hasHazard(hasHazard)
 	);
 
 	initial begin

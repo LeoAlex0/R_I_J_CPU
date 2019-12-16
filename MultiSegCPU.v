@@ -26,14 +26,18 @@ module MultiSegCPU(
     output OF,
     output [31:0] F,
     output [31:0] Mem,
-    output [31:0] PC
+    output [31:0] PC,
+    
+    // Debug
+    output hasHazard
     );
     
     wire [31:0] NPC_IF, NPC_ID;
     wire [31:0] IR_IF, IR_ID, IR_EX, IR_MEM;
     wire [31:0] A_ID, B_ID, Imm_ID, B_EX, ALUo_EX, ALUo_MEM, LMD_MEM;
     wire [4:0] WB_Addr;
-    wire cond_EX, cond_WB, WBFlag, hasHazard;
+    wire cond_IF, cond_EX, cond_WB, WBFlag;
+    // wire hasHazard;
     assign F = ALUo_EX;
     
     // Check and process hazards
@@ -44,7 +48,7 @@ module MultiSegCPU(
     );
     
     // IFSeg
-    wire isBranch_EX, cond_IF;
+    wire isBranch_EX;
     InsAnalyser anysr_EX (
         .IR(IR_EX), 
         .isBranch(isBranch_EX)
