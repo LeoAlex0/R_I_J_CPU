@@ -34,7 +34,7 @@ module InstGetter(
 
     InstROM rom (
         .clka(clk), // input clka
-        .addra(PC), // input [31 : 0] addra
+        .addra(PC[7:2]), // input [31 : 0] addra
         .douta(inst) // output [31 : 0] douta
     );
     

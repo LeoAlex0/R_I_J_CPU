@@ -42,7 +42,7 @@ module WBSeg(
         LMD = 0;
         ALUo = 0;
         IR = 0;
-        cond = 1'b0;
+        //cond = 1'b0;
     end
 	 
     wire [5:0] opcode,funct;

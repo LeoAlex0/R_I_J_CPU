@@ -79,8 +79,8 @@ module TestLayer(
     input clk_100MHz,
     input clk,
     input rst,
-    input [3:0] mux,
-    output reg [7:0] LED
+    input [1:0] mux,
+    output reg [31:0] LED
     );
     wire [31:0] F,Mem,PC;
     wire ZF,OF;
@@ -102,22 +102,15 @@ module TestLayer(
         .OF(OF)
     );
     
-    reg [31:0] tmp;
-    always @(*)
-        case (mux[3:2])
-            2'b00 : tmp = F;
-            2'b01 : tmp = {ZF,6'b0,OF};
-            2'b10 : tmp = Mem;
-            2'b11 : tmp = PC;
-            default: tmp = 32'b0;
+    always @(*) begin
+        case (mux)
+            2'b00 : LED = F;
+            2'b01 : LED = {ZF,6'b0,OF};
+            2'b10 : LED = Mem;
+            2'b11 : LED = PC;
+            default: LED = 32'b0;
         endcase
+    end
     
-    always @(*)
-        case (mux[1:0])
-            2'b00 : LED = tmp[7:0];
-            2'b01 : LED = tmp[15:8];
-            2'b10 : LED = tmp[23:16];
-            default : LED=tmp[31:24];
-        endcase
 
 endmodule

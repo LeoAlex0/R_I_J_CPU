@@ -34,7 +34,7 @@ module MultiSegCPU(
     wire [31:0] IR_IF, IR_ID, IR_EX, IR_MEM;
     wire [31:0] A_ID, B_ID, Imm_ID, B_EX, ALUo_EX, ALUo_MEM, LMD_MEM, WB_Data;
     wire [4:0] WB_Addr;
-    wire cond_IF, cond_EX, cond_WB, WBFlag, hasHazard;
+    wire cond_IF, cond_EX, WBFlag, hasHazard;
    
     assign F = ALUo_EX;
     assign Mem = LMD_MEM;
@@ -116,11 +116,9 @@ module MultiSegCPU(
         .LMD_i(LMD_MEM), 
         .ALUo_i(ALUo_MEM), 
         .IR_i(IR_MEM), 
-        .cond_i(cond_EX), 
         .WB_Data(WB_Data), 
         .WB_Write(WBFlag), 
-        .WB_Addr(WB_Addr), 
-        .cond(cond_WB)
+        .WB_Addr(WB_Addr)   
     );
     
 endmodule
