@@ -24,12 +24,12 @@ module WBSeg(
     input [31:0] LMD_i,
     input [31:0] ALUo_i,
     input [31:0] IR_i,
-    input [31:0] cond_i,
+    //input [31:0] cond_i,
 
     output [31:0] WB_Data,
     output WB_Write,
-    output [4:0] WB_Addr,
-    output reg cond
+    output [4:0] WB_Addr//,
+    //output reg cond
     );
      
     reg [31:0] LMD;
@@ -72,14 +72,14 @@ module WBSeg(
             LMD = 0;
             ALUo = 0;
             IR = 0;
-            cond = 1'b0;
+            //cond = 1'b0;
         end
         else begin
             if(!clk)begin
                 LMD=LMD_i;
                 ALUo=ALUo_i;
                 IR=IR_i;
-                cond=cond_i;
+                //cond=cond_i;
             end else begin
                 dev_null=1'b0;
             end

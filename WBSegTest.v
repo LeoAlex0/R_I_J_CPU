@@ -30,7 +30,7 @@ module WBSegTest;
 	reg [31:0] LMD;
 	reg [31:0] ALUo;
 	reg [31:0] IR;
-	reg [31:0] cond;
+	//reg [31:0] cond;
 	// Outputs
 	wire [31:0] WB_Data;
 	wire WB_Write;
@@ -42,7 +42,7 @@ module WBSegTest;
 		.rst(rst), 
 		.LMD_i(LMD), 
 		.ALUo_i(ALUo), 
-		.cond_i(cond),
+		//.cond_i(cond),
 		.IR_i(IR), 
 		.WB_Data(WB_Data), 
 		.WB_Write(WB_Write), 
@@ -57,7 +57,7 @@ always #10 clk = ~clk;
 		rst = 0;
 		LMD = 123;
 		ALUo = 456;
-		cond = 0;
+		//cond = 0;
 		IR = 32'b000000_00000_00000_00000_00000_100000;
 
 		// Wait 100 ns for global reset to finish
