@@ -1,28 +1,63 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/codgi/Documents/GitHub/R_I_J_CPU/ExSegTest_isim_beh.exe -prj C:/Users/codgi/Documents/GitHub/R_I_J_CPU/ExSegTest_beh.prj work.ExSegTest work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTest_isim_beh.exe -prj C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTest_beh.prj work.MultiSegCPUTest work.glbl 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/ipcore_dir/InstROM.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/ipcore_dir/RAM.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/Controller.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/SimpleALU.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/RegHeap.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/InstGetter.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/InsAnalyser.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/WBSeg.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MEMSeg.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/IFSeg.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/IDSeg.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/EXSeg.v" into library work
-Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/ExSegTest.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPU.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTest.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
+WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPU.v" Line 51: Port opcode is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" Line 32: Port funct is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" Line 44: Port funct is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/IDSeg.v" Line 68: Port ZF is not connected to this instance
 WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/EXSeg.v" Line 55: Port rs is not connected to this instance
 WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/EXSeg.v" Line 64: Port w_r_s is not connected to this instance
 WARNING:HDLCompiler:189 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/EXSeg.v" Line 67: Size mismatch in connection of port <ZF>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MEMSeg.v" Line 55: Port opcode is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/WBSeg.v" Line 89: Port opcode is not connected to this instance
+WARNING:HDLCompiler:189 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPU.v" Line 119: Size mismatch in connection of port <cond_i>. Formal port size is 32-bit while actual signal size is 1-bit.
 Completed static elaboration
 Compiling module Controller
 Compiling module InsAnalyser
+Compiling module hazard
+Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
+Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
+Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
+Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="spart...
+Compiling module InstROM
+Compiling module InstGetter
+Compiling module IFSeg
+Compiling module RegHeap
+Compiling module IDSeg
 Compiling module SimpleALU
 Compiling module EXSeg
-Compiling module ExSegTest
+Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
+Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
+Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
+Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="spart...
+Compiling module RAM
+Compiling module MEMSeg
+Compiling module WBSeg
+Compiling module MultiSegCPU
+Compiling module MultiSegCPUTest
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 6 Verilog Units
-Built simulation executable C:/Users/codgi/Documents/GitHub/R_I_J_CPU/ExSegTest_isim_beh.exe
-Fuse Memory Usage: 28692 KB
-Fuse CPU Usage: 437 ms
+Compiled 24 Verilog Units
+Built simulation executable C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTest_isim_beh.exe
+Fuse Memory Usage: 34464 KB
+Fuse CPU Usage: 624 ms

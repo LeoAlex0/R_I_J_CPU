@@ -31,7 +31,7 @@ module IFSeg(
     );
 	
     wire [31:0] IR;
-    wire [31:0] realNPC,nextPC;
+    wire [31:0] realNPC, nextPC;
     wire clk1;
     assign realNPC = cond ? condNPC : nextPC;
     assign NPC = realNPC;
@@ -44,7 +44,7 @@ module IFSeg(
         .newPC(realNPC),
         .inst(IR),
         .nextPC(nextPC),
-        .PC(PCo)
+        .PCo(PCo)
     );
 
 endmodule

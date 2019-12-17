@@ -24,11 +24,13 @@ module InstGetter(
     input [31:0] newPC,
     output [31:0] inst,
     output [31:0] nextPC,
-    output reg [31:0] PC
+    output [31:0] PCo
     );
     
-    initial PC <= 0;
+    reg [31:0] PC;
+    initial PC <= 32'b0;
     assign nextPC = PC + 4;
+    assign PCo = PC;
 
     InstROM rom (
         .clka(clk), // input clka
@@ -36,7 +38,7 @@ module InstGetter(
         .douta(inst) // output [31 : 0] douta
     );
     
-    always @ (negedge clk, posedge rst)
+    always @ (negedge clk or posedge rst)
         if (rst) PC <= 0;
         else PC <= newPC;
     

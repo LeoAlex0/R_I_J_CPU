@@ -60,13 +60,13 @@ module IFSegTest;
 		condNPC = 0;
 		// Wait 100 ns for global reset to finish
 		#100;
-		condNPC = 1;
+		condNPC = 32'b0;
 		#100;
-		condNPC = 12;
+		condNPC = 32'b00000000_00000000_00000000_00000100;
 		#100;
-		condNPC = 123;
+		condNPC = 32'b00000000_00000000_00000000_00001000;
 		#100;
-		condNPC = 12345;
+		condNPC = 32'b00000000_00000000_00000000_00010000;
 		#100;
 		condNPC = 0;
 		#100;

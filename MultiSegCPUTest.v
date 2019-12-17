@@ -34,8 +34,6 @@ module MultiSegCPUTest;
 	wire [31:0] F;
 	wire [31:0] Mem;
 	wire [31:0] PC;
-    
-    wire hasHazard;
 
 	// Instantiate the Unit Under Test (UUT)
 	MultiSegCPU uut (
@@ -45,15 +43,20 @@ module MultiSegCPUTest;
 		.OF(OF), 
 		.F(F), 
 		.Mem(Mem), 
-		.PC(PC),
-        .hasHazard(hasHazard)
+		.PC(PC)
 	);
 
 	initial begin
 		// Initialize Inputs
 		clk = 0;
 		rst = 0;
-
+        
+        #20;
+        rst = 1;
+        #20
+        rst = 0;
+        
+        
 		// Wait 100 ns for global reset to finish
 		#100;
         

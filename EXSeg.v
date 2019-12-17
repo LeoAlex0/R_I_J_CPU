@@ -80,8 +80,10 @@ module EXSeg(
 
     assign cond = (Ai == 0 ? 1'b1 : 1'b0);
    
-    always @ (negedge clk) begin
-        //if (!rst) begin
+    always @ (negedge clk or posedge rst) begin
+        if (rst) begin
+            IR <= 32'b0;
+        end else begin
             IR <= IRi;
        
             // MUX-2
@@ -99,7 +101,7 @@ module EXSeg(
             end else begin
                 B <= Immi;
             end
-        //end
+        end
     end
 
 endmodule
