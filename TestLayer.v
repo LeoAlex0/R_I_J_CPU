@@ -55,7 +55,7 @@ module BTN_OK(
 		BTN1 <= BTN;
 		BTN2 <= BTN1;
 	end
-	assign BTN_Down = (~BTN2)&& BTN1 ; //ä»Ž0åˆ°1çš„è·³å˜
+	assign BTN_Down = (~BTN2)&& BTN1 ; //ä»åˆçš„è·³å
 	
 	always @(posedge clk_100MHz)
 	begin
@@ -70,24 +70,27 @@ module BTN_OK(
 		if (BTN_Up) BTN_Out <= 1'b0;
 	end
 	
-	assign BTN_Up = BTN_20ms_2 && (~BTN_20ms_1);//ä»Ž1åˆ°0
+	assign BTN_Up = BTN_20ms_2 && (~BTN_20ms_1);//ä»åˆ
 
 endmodule
 
 
 module TestLayer(
-    input clk_100MHz,
+    input clk_25MHz,
     input clk,
     input rst,
     input [1:0] mux,
-    output reg [31:0] LED
+    output reg [31:0] led,
+	 output [2:0] which,
+	 output enable,
+	 output [7:0] seg
     );
     wire [31:0] F,Mem,PC;
     wire ZF,OF;
     
     wire clk_out;
     BTN_OK btnclk(
-        .clk_100MHz(clk_100MHz),
+        .clk_100MHz(clk_25MHz),
         .BTN(clk),
         .BTN_Out(clk_out)
     );
@@ -102,6 +105,20 @@ module TestLayer(
         .OF(OF)
     );
     
+	 wire clk_500Hz;
+	Exp16Fdiv Fdiv500Hzout (
+			.CLK_in(clk_25MHz), 
+			.n(31'd5000), 
+			.rst(1'b0), 
+			.CLK_out(clk_500Hz)
+	);
+	 
+	 Display disp(clk_500Hz,showData,which,seg);
+	 
+	 wire [31:0] showData;
+	 
+	 assign showData = 32'b0;//TODO: ÌîÉÏÊýÂë¹ÜÏÔÊ¾Êý¾Ý
+	 
     always @(*) begin
         case (mux)
             2'b00 : LED = F;
