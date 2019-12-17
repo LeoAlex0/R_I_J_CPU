@@ -43,9 +43,9 @@ module EXSeg(
     wire isALUR, isBranch;
     
     initial begin
-        A = 32'b0;
-        B = 32'b0;
-        IR = 32'b0;
+        A <= 32'b0;
+        B <= 32'b0;
+        IR <= 32'b0;
     end
     
     assign Bo = B;
@@ -64,7 +64,6 @@ module EXSeg(
     Controller ctrl (
         .opcode(opcode),
         .funct(funct),
-        .ZF(0),
         .ALU_OP(ALU_OP)
     );
     
@@ -83,6 +82,8 @@ module EXSeg(
     always @ (negedge clk or posedge rst) begin
         if (rst) begin
             IR <= 32'b0;
+            A <= 32'b0;
+            B <= 32'b0;
         end else begin
             IR <= IRi;
        

@@ -32,14 +32,12 @@ module IFSeg(
 	
     wire [31:0] IR;
     wire [31:0] realNPC, nextPC;
-    wire clk1;
     assign realNPC = cond ? condNPC : nextPC;
     assign NPC = realNPC;
-    assign clk1 = stall ? 1'b1 : clk;
-    assign IRo = stall ? 32'b0 : IR;
+    assign IRo = IR;
 
     InstGetter instMem(
-        .clk(clk1),
+        .clk(clk),
         .rst(rst),
         .newPC(realNPC),
         .inst(IR),

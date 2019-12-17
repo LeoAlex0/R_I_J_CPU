@@ -3,26 +3,6 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    10:06:54 05/21/2019 
-// Design Name: 
-// Module Name:    TestLayer 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
 // Create Date:    20:45:02 03/02/2014 
 // Design Name: 
 // Module Name:    BTN_OK 
@@ -80,13 +60,13 @@ module TestLayer(
     input clk,
     input rst,
     input [1:0] mux,
-    output reg [31:0] led,
 	 output [2:0] which,
 	 output enable,
 	 output [7:0] seg
     );
     wire [31:0] F,Mem,PC;
     wire ZF,OF;
+    wire [31:0] showData;
     
     wire clk_out;
     BTN_OK btnclk(
@@ -115,17 +95,16 @@ module TestLayer(
 	 
 	 Display disp(clk_500Hz,showData,which,seg);
 	 
-	 wire [31:0] showData;
-	 
-	 assign showData = 32'b0;//TODO: 填上数码管显示数据
+     reg [31:0] led;
+	 assign showData = led;//TODO: 填上数码管显示数据
 	 
     always @(*) begin
         case (mux)
-            2'b00 : LED = F;
-            2'b01 : LED = {ZF,6'b0,OF};
-            2'b10 : LED = Mem;
-            2'b11 : LED = PC;
-            default: LED = 32'b0;
+            2'b00 : led = F;
+            2'b01 : led = {ZF,6'b0,OF};
+            2'b10 : led = Mem;
+            2'b11 : led = PC;
+            default: led = 32'b0;
         endcase
     end
     

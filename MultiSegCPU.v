@@ -29,12 +29,11 @@ module MultiSegCPU(
     output [31:0] PC
     );
     
-    
     wire [31:0] NPC_IF, NPC_ID;
-    wire [31:0] IR_IF, IR_ID, IR_EX, IR_MEM;
+    wire [31:0] IR_IF, IR_IFF, IR_ID, IR_EX, IR_MEM;
     wire [31:0] A_ID, B_ID, Imm_ID, B_EX, ALUo_EX, ALUo_MEM, LMD_MEM, WB_Data;
     wire [4:0] WB_Addr;
-    wire cond_IF, cond_EX, WBFlag, hasHazard;
+    wire cond_IF, cond_EX, WBFlag, hasHazard, clk_IF;
    
     assign F = ALUo_EX;
     assign Mem = LMD_MEM;
@@ -52,24 +51,28 @@ module MultiSegCPU(
         .IR(IR_EX), 
         .isBranch(isBranch_EX)
     );
+    assign clk_IF = hasHazard ? 1'b1 : clk;
+
     assign cond_IF = isBranch_EX && cond_EX;
     IFSeg IFSeg_inst (
-        .clk(clk), 
+        .clk(clk_IF), 
         .rst(rst), 
         .cond(cond_IF), 
-        .stall(hasHazard), 
         .condNPC(ALUo_EX), 
         .NPC(NPC_IF), 
         .IRo(IR_IF),
         .PCo(PC)
     );
     
+    
+    assign IR_IFF = hasHazard ? 32'b0 : IR_IF;
+    
     // IDSeg
     IDSeg IDSeg_inst (
-        .clk(clk), 
+        .clk(~clk), 
         .rst(rst), 
         .NPCi(NPC_IF), 
-        .IR(IR_IF), 
+        .IR(IR_IFF), 
         .WBFlag(WBFlag), 
         .WBAddr(WB_Addr), 
         .WBVal(WB_Data), 
@@ -99,7 +102,7 @@ module MultiSegCPU(
     
     // MEMSeg
     MEMSeg MEMSeg_inst (
-        .clk(clk), 
+        .clk(~clk), 
         .rst(rst), 
         .B_i(B_EX), 
         .ALUo_In_i(ALUo_EX), 
