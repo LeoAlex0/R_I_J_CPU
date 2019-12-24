@@ -73,12 +73,12 @@ module Controller(
             
             // J
             6'b000_01x: begin
-                {imm_s,rt_imm_s,ALU_OP,MemWrite,PC_s} = 9'bx_x_xxx_0_11;
+                {imm_s,rt_imm_s,ALU_OP,MemWrite,PC_s} = 8'bx_x_xxx_0_11;
                 w_r_s = {opcode[0],1'b0};
                 w_r_data_s = {opcode[0],1'b0};
                 WriteReg = opcode[0];
             end
-            
+                        
             default : {w_r_s,imm_s,w_r_data_s,rt_imm_s,MemWrite,PC_s,WriteReg,ALU_OP} = 0;
         endcase
     end

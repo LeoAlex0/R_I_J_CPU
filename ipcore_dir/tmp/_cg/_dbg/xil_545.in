@@ -23,7 +23,7 @@ SET_PREFERENCE implementationfiletype Ngc
 SET_PREFERENCE foundationsym false
 SET_PREFERENCE createndf false
 SET_PREFERENCE removerpms false
-SET_PARAMETER Component_Name InstROM
+SET_PARAMETER Component_Name RAM
 SET_PARAMETER Interface_Type Native
 SET_PARAMETER AXI_Type AXI4_Full
 SET_PARAMETER AXI_Slave_Type Memory_Slave
@@ -42,9 +42,9 @@ SET_PARAMETER Algorithm Minimum_Area
 SET_PARAMETER Primitive 8kx2
 SET_PARAMETER Assume_Synchronous_Clk false
 SET_PARAMETER Write_Width_A 32
-SET_PARAMETER Write_Depth_A 64
+SET_PARAMETER Write_Depth_A 16384
 SET_PARAMETER Read_Width_A 32
-SET_PARAMETER Operating_Mode_A READ_FIRST
+SET_PARAMETER Operating_Mode_A WRITE_FIRST
 SET_PARAMETER Enable_A Always_Enabled
 SET_PARAMETER Write_Width_B 32
 SET_PARAMETER Read_Width_B 32
@@ -60,8 +60,8 @@ SET_PARAMETER register_porta_input_of_softecc false
 SET_PARAMETER register_portb_output_of_softecc false
 SET_PARAMETER Pipeline_Stages 0
 SET_PARAMETER Load_Init_File true
-SET_PARAMETER Coe_File C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSeg_CPU_Test.coe
-SET_PARAMETER Fill_Remaining_Memory_Locations true
+SET_PARAMETER Coe_File /home/extra-home/leo/IC/R_I_J_CPU/I_CPU_Test.coe
+SET_PARAMETER Fill_Remaining_Memory_Locations false
 SET_PARAMETER Remaining_Memory_Locations 0
 SET_PARAMETER Use_RSTA_Pin false
 SET_PARAMETER Reset_Memory_Latch_A false
@@ -75,10 +75,10 @@ SET_PARAMETER Reset_Type SYNC
 SET_PARAMETER Additional_Inputs_for_Power_Estimation false
 SET_PARAMETER Port_A_Clock 100
 SET_PARAMETER Port_A_Write_Rate 50
-SET_PARAMETER Port_B_Clock 100
-SET_PARAMETER Port_B_Write_Rate 50
+SET_PARAMETER Port_B_Clock 0
+SET_PARAMETER Port_B_Write_Rate 0
 SET_PARAMETER Port_A_Enable_Rate 100
-SET_PARAMETER Port_B_Enable_Rate 100
+SET_PARAMETER Port_B_Enable_Rate 0
 SET_PARAMETER Collision_Warnings ALL
 SET_PARAMETER Disable_Collision_Warnings false
 SET_PARAMETER Disable_Out_of_Range_Warnings false

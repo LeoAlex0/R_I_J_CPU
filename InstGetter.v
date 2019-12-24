@@ -39,7 +39,7 @@ module InstGetter(
     );
     
     always @ (negedge clk or posedge rst)
-        if (rst) PC <= 0;
+        if (rst) PC <= 32'b0;
         else PC <= newPC;
     
 endmodule

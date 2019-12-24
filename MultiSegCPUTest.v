@@ -49,16 +49,11 @@ module MultiSegCPUTest;
 	initial begin
 		// Initialize Inputs
 		clk = 0;
-		rst = 0;
+		rst = 1;
         
-        #20;
-        rst = 1;
-        #20
-        rst = 0;
-        
-        
-		// Wait 100 ns for global reset to finish
+     	// Wait 100 ns for global reset to finish
 		#100;
+        rst = 0;
         
 		// Add stimulus here
 	end

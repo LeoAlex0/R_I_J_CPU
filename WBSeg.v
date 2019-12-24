@@ -41,7 +41,7 @@ module WBSeg(
     initial begin
         LMD = 0;
         ALUo = 0;
-        IR = 0;
+        IR = 32'hFFFF_FFFF;
         //cond = 1'b0;
     end
 	 
@@ -54,13 +54,14 @@ module WBSeg(
     wire isStore;
     wire isALUR;
     wire isALUImm;
+    wire isNop;
     assign isLoadStore = isLoad|isStore;
 
 	//MUX and Outputs
     wire useRt;
     wire dontWriteInOtherIns;
     assign useRt = isALUImm|isLoadStore;//use rt or rd
-    assign dontWriteInOtherIns = ~(isALUR|isALUImm|isLoadStore); //disable write_sign in other inst
+    assign dontWriteInOtherIns = ~(isALUR|isALUImm|isLoadStore) | isNop; //disable write_sign in other inst
     assign WB_Data = (isLoadStore)?LMD:ALUo;//MUX4
     assign WB_Addr = (useRt)?rt:rd;
     assign WB_Write = ~dontWriteInOtherIns;
@@ -71,7 +72,7 @@ module WBSeg(
         if(rst) begin
             LMD = 0;
             ALUo = 0;
-            IR = 0;
+            IR = 32'hFFFF_FFFF;
             //cond = 1'b0;
         end
         else begin
@@ -91,7 +92,8 @@ module WBSeg(
         .isLoad(isLoad),
         .isStore(isStore),
         .isALUR(isALUR),
-        .isALUImm(isALUImm)
+        .isALUImm(isALUImm),
+        .isNop(isNop)
     );
 
 endmodule

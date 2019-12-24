@@ -23,10 +23,10 @@ module IDSeg(
     input clk,
     input rst,
     input [31:0] NPCi,
-    input [31:0] IR,        // IF :: Instruction
+    input [31:0] IR,
     input WBFlag,
-    input [4:0] WBAddr,     // Writeback :: Reg Addr
-    input [31:0] WBVal,     // Writeback :: Reg value
+    input [4:0] WBAddr,
+    input [31:0] WBVal,
     output [31:0] NPCo,
     output [31:0] IRo,
     output [31:0] A,

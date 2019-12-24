@@ -32,9 +32,6 @@ module EXSeg(
     output ZFo, OFo,
     output [31:0] Bo,
     output [31:0] IRo
-    
-    //output [2:0] ALU_OP,
-    //output [5:0] opcode, funct
     );
     
     reg [31:0] A, B, IR;
@@ -42,14 +39,14 @@ module EXSeg(
     wire [5:0] opcode, funct;
     wire isALUR, isBranch;
     
+    assign Bo = B;
+    assign IRo = IR;
+    
     initial begin
         A <= 32'b0;
         B <= 32'b0;
-        IR <= 32'b0;
+        IR <= 32'hFFFF_FFFF;
     end
-    
-    assign Bo = B;
-    assign IRo = IR;
     
     // Instruction Analyzer
     InsAnalyser analyser_inst (
@@ -77,11 +74,11 @@ module EXSeg(
         .F(ALUo)
     );
 
-    assign cond = (Ai == 0 ? 1'b1 : 1'b0);
+    assign cond = (A == 0 ? 1'b1 : 1'b0);
    
     always @ (negedge clk or posedge rst) begin
         if (rst) begin
-            IR <= 32'b0;
+            IR <= 32'hFFFF_FFFF;
             A <= 32'b0;
             B <= 32'b0;
         end else begin

@@ -30,10 +30,10 @@ module MultiSegCPU(
     );
     
     wire [31:0] NPC_IF, NPC_ID;
-    wire [31:0] IR_IF, IR_IFF, IR_ID, IR_EX, IR_MEM;
+    wire [31:0] IR_IF, lastIR_IF, IR_IFF, IR_ID, IR_EX, IR_MEM;
     wire [31:0] A_ID, B_ID, Imm_ID, B_EX, ALUo_EX, ALUo_MEM, LMD_MEM, WB_Data;
     wire [4:0] WB_Addr;
-    wire cond_IF, cond_EX, WBFlag, hasHazard, clk_IF;
+    wire cond_IF, cond_EX, WBFlag, hasHazard;
    
     assign F = ALUo_EX;
     assign Mem = LMD_MEM;
@@ -41,7 +41,7 @@ module MultiSegCPU(
     // Check and process hazards
     hazard hzd (
         .IR_IF(IR_IF), 
-        .IR_ID(IR_ID), 
+        .IR_ID(lastIR_IF), 
         .hasHazard(hasHazard)
     );
     
@@ -51,21 +51,20 @@ module MultiSegCPU(
         .IR(IR_EX), 
         .isBranch(isBranch_EX)
     );
-    assign clk_IF = hasHazard ? 1'b1 : clk;
-
     assign cond_IF = isBranch_EX && cond_EX;
     IFSeg IFSeg_inst (
-        .clk(clk_IF), 
+        .clk(clk), 
         .rst(rst), 
         .cond(cond_IF), 
         .condNPC(ALUo_EX), 
         .NPC(NPC_IF), 
         .IRo(IR_IF),
+        .IR1o(lastIR_IF),
         .PCo(PC)
     );
     
+    assign IR_IFF = hasHazard ? 32'hFFFF_FFFF : IR_IF;
     
-    assign IR_IFF = hasHazard ? 32'b0 : IR_IF;
     
     // IDSeg
     IDSeg IDSeg_inst (

@@ -85,7 +85,7 @@ module TestLayer(
         .OF(OF)
     );
     
-	 wire clk_500Hz;
+	wire clk_500Hz;
 	Exp16Fdiv Fdiv500Hzout (
 			.CLK_in(clk_25MHz), 
 			.n(31'd5000), 
