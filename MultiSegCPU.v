@@ -54,7 +54,8 @@ module MultiSegCPU(
     assign cond_IF = isBranch_EX && cond_EX;
     IFSeg IFSeg_inst (
         .clk(clk), 
-        .rst(rst), 
+        .rst(rst),
+        .stall(hasHazard),
         .cond(cond_IF), 
         .condNPC(ALUo_EX), 
         .NPC(NPC_IF), 
@@ -64,7 +65,6 @@ module MultiSegCPU(
     );
     
     assign IR_IFF = hasHazard ? 32'hFFFF_FFFF : IR_IF;
-    
     
     // IDSeg
     IDSeg IDSeg_inst (

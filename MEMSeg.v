@@ -80,7 +80,7 @@ module MEMSeg(
 	 
     RAM memory (
         .clka(~clk), // input clka
-        .wea(isStore & ~isNop), // input [0 : 0] wea
+        .wea(isStore && !isNop), // input [0 : 0] wea
         .addra(ALUo_In[15:2]), // input [13 : 0] addra
         .dina(B), // input [31 : 0] dina
         .douta(LMD) // output [31 : 0] douta

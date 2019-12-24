@@ -17,9 +17,6 @@
 <msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/InsAnalyser.v" Line 63: Port <arg fmt="%s" index="1">ZF</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/InstGetter.v" Line 35: Port <arg fmt="%s" index="1">wea</arg> is not connected to this instance
-</msg>
-
 <msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/IDSeg.v" Line 68: Port <arg fmt="%s" index="1">ZF</arg> is not connected to this instance
 </msg>
 
@@ -32,7 +29,7 @@
 <msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MEMSeg.v" Line 55: Port <arg fmt="%s" index="1">opcode</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/WBSeg.v" Line 90: Port <arg fmt="%s" index="1">opcode</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/WBSeg.v" Line 85: Port <arg fmt="%s" index="1">opcode</arg> is not connected to this instance
 </msg>
 
 </messages>

@@ -34,7 +34,7 @@ module EXSeg(
     output [31:0] IRo
     );
     
-    reg [31:0] A, B, IR;
+    reg [31:0] A, B, IR, Imm;
     wire [2:0] ALU_OP;
     wire [5:0] opcode, funct;
     wire isALUR, isBranch;
@@ -67,38 +67,26 @@ module EXSeg(
      // ALU
     SimpleALU alu (
         .ALU_OP(ALU_OP),
-        .A(A),
-		.B(B),
+        .A(isBranch ? NPC : A),
+		.B(isALUR ? B : isBranch ? (Imm << 2) : Imm),
 		.ZF(ZFo),
 		.OF(OFo),
         .F(ALUo)
     );
 
     assign cond = (A == 0 ? 1'b1 : 1'b0);
-   
+       
     always @ (negedge clk or posedge rst) begin
         if (rst) begin
             IR <= 32'hFFFF_FFFF;
             A <= 32'b0;
             B <= 32'b0;
+            Imm <= 32'b0;
         end else begin
             IR <= IRi;
-       
-            // MUX-2
-            if (isBranch) begin  
-                A <= NPCi;
-            end else begin
-                A <= Ai;
-            end
-           
-            // MUX-3
-            if (isALUR) begin   
-                B <= Bi;
-            end else if (isBranch) begin
-                B <= (Immi << 2);
-            end else begin
-                B <= Immi;
-            end
+            A <= Ai;
+            B <= Bi;
+            Imm <= Immi;
         end
     end
 

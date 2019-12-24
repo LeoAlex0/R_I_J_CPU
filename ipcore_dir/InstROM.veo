@@ -49,9 +49,7 @@
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 InstROM your_instance_name (
   .clka(clka), // input clka
-  .wea(wea), // input [0 : 0] wea
   .addra(addra), // input [5 : 0] addra
-  .dina(dina), // input [31 : 0] dina
   .douta(douta) // output [31 : 0] douta
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------

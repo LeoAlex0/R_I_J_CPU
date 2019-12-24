@@ -23,6 +23,7 @@ module IFSeg(
     input clk,
 	input rst,
     input cond,
+    input stall,
     input [31:0] condNPC,
     output [31:0] NPC,
     output [31:0] IRo,
@@ -45,6 +46,7 @@ module IFSeg(
     InstGetter instMem(
         .clk(clk),
         .rst(rst),
+        .stall(stall),
         .newPC(realNPC),
         .inst(IR_wire),
         .nextPC(nextPC),

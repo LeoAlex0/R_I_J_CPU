@@ -2,6 +2,7 @@
  
  
 
+ 
 
 
 
@@ -74,21 +75,21 @@
 -- Configured Core Parameter Values:
 -- (Refer to the SIM Parameters table in the datasheet for more information on
 -- the these parameters.)
---    C_FAMILY                    :  spartan6 
---    C_XDEVICEFAMILY             :  spartan6 
+--    C_FAMILY                    :  artix7 
+--    C_XDEVICEFAMILY             :  artix7 
 --    C_INTERFACE_TYPE            :  0 
 --    C_ENABLE_32BIT_ADDRESS      :  0 
 --    C_AXI_TYPE                  :  1 
 --    C_AXI_SLAVE_TYPE            :  0 
 --    C_AXI_ID_WIDTH              :  4 
---    C_MEM_TYPE                  :  0 
+--    C_MEM_TYPE                  :  3 
 --    C_BYTE_SIZE                 :  9 
 --    C_ALGORITHM                 :  1 
 --    C_PRIM_TYPE                 :  1 
 --    C_LOAD_INIT_FILE            :  1 
 --    C_INIT_FILE_NAME            :  InstROM.mif 
 --    C_USE_DEFAULT_DATA          :  1 
---    C_DEFAULT_DATA              :  0 
+--    C_DEFAULT_DATA              :  FFFFFFFF 
 --    C_RST_TYPE                  :  SYNC 
 --    C_HAS_RSTA                  :  0 
 --    C_RST_PRIORITY_A            :  CE 
@@ -98,7 +99,7 @@
 --    C_HAS_REGCEA                :  0 
 --    C_USE_BYTE_WEA              :  0 
 --    C_WEA_WIDTH                 :  1 
---    C_WRITE_MODE_A              :  READ_FIRST 
+--    C_WRITE_MODE_A              :  WRITE_FIRST 
 --    C_WRITE_WIDTH_A             :  32 
 --    C_READ_WIDTH_A              :  32 
 --    C_WRITE_DEPTH_A             :  64 
@@ -231,11 +232,7 @@ ARCHITECTURE xilinx OF InstROM_prod IS
   COMPONENT InstROM_exdes IS
   PORT (
       --Port A
-  
-    WEA            : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     ADDRA          : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
-  
-    DINA           : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
   
     DOUTA          : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
@@ -252,11 +249,7 @@ BEGIN
   bmg0 : InstROM_exdes
     PORT MAP (
       --Port A
-  
-      WEA        => WEA,
       ADDRA      => ADDRA,
-  
-      DINA       => DINA,
   
       DOUTA      => DOUTA,
 

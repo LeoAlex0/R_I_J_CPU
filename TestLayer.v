@@ -68,6 +68,8 @@ module TestLayer(
     wire ZF,OF;
     wire [31:0] showData;
     
+    assign enable = 1;
+    
     wire clk_out;
     BTN_OK btnclk(
         .clk_100MHz(clk_25MHz),
@@ -101,7 +103,7 @@ module TestLayer(
     always @(*) begin
         case (mux)
             2'b00 : led = F;
-            2'b01 : led = {ZF,6'b0,OF};
+            2'b01 : led = {ZF,30'b0,OF};
             2'b10 : led = Mem;
             2'b11 : led = PC;
             default: led = 32'b0;

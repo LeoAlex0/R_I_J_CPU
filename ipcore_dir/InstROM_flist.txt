@@ -3,6 +3,7 @@ InstROM.asy
 InstROM.gise
 InstROM.mif
 InstROM.ngc
+InstROM.sym
 InstROM.v
 InstROM.veo
 InstROM.xco
@@ -26,8 +27,6 @@ InstROM\simulation\InstROM_tb.vhd
 InstROM\simulation\addr_gen.vhd
 InstROM\simulation\bmg_stim_gen.vhd
 InstROM\simulation\bmg_tb_pkg.vhd
-InstROM\simulation\checker.vhd
-InstROM\simulation\data_gen.vhd
 InstROM\simulation\functional\simcmds.tcl
 InstROM\simulation\functional\simulate_isim.bat
 InstROM\simulation\functional\simulate_mti.bat

@@ -27,3 +27,28 @@ NET "which[1]" IOSTANDARD = LVCMOS18;
 NET "which[2]" IOSTANDARD = LVCMOS18;
 NET "enable" IOSTANDARD = LVCMOS18;
 NET "clk_25MHz" IOSTANDARD = LVCMOS18;
+
+# PlanAhead Generated IO constraints 
+
+NET "mux[1]" IOSTANDARD = LVCMOS18;
+NET "mux[0]" IOSTANDARD = LVCMOS18;
+
+# PlanAhead Generated physical constraints 
+
+NET "mux[1]" LOC = T3;
+NET "mux[0]" LOC = U3;
+
+# PlanAhead Generated IO constraints 
+
+NET "mux[1]" PULLDOWN;
+NET "mux[0]" PULLDOWN;
+NET "rst" IOSTANDARD = LVCMOS18;
+NET "rst" PULLDOWN;
+NET "clk" PULLDOWN;
+
+# PlanAhead Generated physical constraints 
+
+NET "rst" LOC = R4;
+
+NET "clk" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "rst" CLOCK_DEDICATED_ROUTE = FALSE;

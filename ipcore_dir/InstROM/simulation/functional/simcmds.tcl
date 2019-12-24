@@ -47,6 +47,7 @@
  
  
 
+ 
 
 
 
@@ -55,8 +56,6 @@ isim set radix hex
 wave add /InstROM_tb/status
       wave add  /InstROM_tb/InstROM_synth_inst/BMG_PORT/CLKA
       wave add  /InstROM_tb/InstROM_synth_inst/BMG_PORT/ADDRA
-      wave add  /InstROM_tb/InstROM_synth_inst/BMG_PORT/DINA
-      wave add  /InstROM_tb/InstROM_synth_inst/BMG_PORT/WEA
       wave add  /InstROM_tb/InstROM_synth_inst/BMG_PORT/DOUTA
 run all
 quit

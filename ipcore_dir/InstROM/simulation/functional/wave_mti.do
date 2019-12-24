@@ -3,6 +3,7 @@
  
  
 
+ 
 
 
 
@@ -12,8 +13,6 @@ quietly WaveActivateNextPane {} 0
       add wave -noupdate /InstROM_tb/status
       add wave -noupdate /InstROM_tb/InstROM_synth_inst/bmg_port/CLKA
       add wave -noupdate /InstROM_tb/InstROM_synth_inst/bmg_port/ADDRA
-      add wave -noupdate /InstROM_tb/InstROM_synth_inst/bmg_port/DINA
-      add wave -noupdate /InstROM_tb/InstROM_synth_inst/bmg_port/WEA
       add wave -noupdate /InstROM_tb/InstROM_synth_inst/bmg_port/DOUTA
 
 TreeUpdate [SetDefaultTree]

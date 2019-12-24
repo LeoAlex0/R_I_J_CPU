@@ -21,6 +21,7 @@
 module InstGetter(
     input clk,
     input rst,
+    input stall,
     input [31:0] newPC,
     output [31:0] inst,
     output [31:0] nextPC,
@@ -40,6 +41,6 @@ module InstGetter(
     
     always @ (negedge clk or posedge rst)
         if (rst) PC <= 32'b0;
-        else PC <= newPC;
+        else if (~stall) PC <= newPC;
     
 endmodule

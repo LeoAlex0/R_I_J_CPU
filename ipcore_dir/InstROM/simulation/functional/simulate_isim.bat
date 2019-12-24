@@ -55,10 +55,7 @@ vhpcomp -work work ..\..\example_design\InstROM_exdes.vhd
 echo "Compiling Test Bench Files"
 
 vhpcomp -work work    ..\bmg_tb_pkg.vhd
-vhpcomp -work work    ..\random.vhd
-vhpcomp -work work    ..\data_gen.vhd
 vhpcomp -work work    ..\addr_gen.vhd
-vhpcomp -work work    ..\checker.vhd
 vhpcomp -work work    ..\bmg_stim_gen.vhd
 vhpcomp -work work    ..\InstROM_synth.vhd 
 vhpcomp -work work    ..\InstROM_tb.vhd

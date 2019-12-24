@@ -39,9 +39,9 @@ module WBSeg(
     reg dev_null;
 
     initial begin
-        LMD = 0;
-        ALUo = 0;
-        IR = 32'hFFFF_FFFF;
+        LMD <= 0;
+        ALUo <= 0;
+        IR <= 32'hFFFF_FFFF;
         //cond = 1'b0;
     end
 	 
@@ -70,20 +70,15 @@ module WBSeg(
 	// control
     always@(negedge clk or posedge rst) begin
         if(rst) begin
-            LMD = 0;
-            ALUo = 0;
-            IR = 32'hFFFF_FFFF;
+            LMD <= 0;
+            ALUo <= 0;
+            IR <= 32'hFFFF_FFFF;
             //cond = 1'b0;
-        end
-        else begin
-            if(!clk)begin
-                LMD=LMD_i;
-                ALUo=ALUo_i;
-                IR=IR_i;
-                //cond=cond_i;
-            end else begin
-                dev_null=1'b0;
-            end
+        end else begin
+            LMD<=LMD_i;
+            ALUo<=ALUo_i;
+            IR<=IR_i;
+            //cond=cond_i;
         end
     end
 	 
