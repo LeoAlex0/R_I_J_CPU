@@ -1,0 +1,9 @@
+
+
+
+// Instantiate the module
+Decoder instance_name (
+    .inst(inst)
+    );
+
+

@@ -21,8 +21,8 @@ Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTes
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPU.v" Line 50: Port opcode is not connected to this instance
-WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" Line 33: Port funct is not connected to this instance
-WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" Line 45: Port funct is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" Line 31: Port write is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" Line 37: Port read0 is not connected to this instance
 WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/InsAnalyser.v" Line 63: Port ZF is not connected to this instance
 WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/IDSeg.v" Line 68: Port ZF is not connected to this instance
 WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/EXSeg.v" Line 52: Port rs is not connected to this instance
@@ -30,9 +30,10 @@ WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/EXSeg.v" L
 WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MEMSeg.v" Line 55: Port opcode is not connected to this instance
 WARNING:HDLCompiler:1016 - "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/WBSeg.v" Line 85: Port opcode is not connected to this instance
 Completed static elaboration
+Compiling module Decoder
+Compiling module hazard
 Compiling module Controller
 Compiling module InsAnalyser
-Compiling module hazard
 Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
 Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
 Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
@@ -55,8 +56,8 @@ Compiling module MultiSegCPU
 Compiling module MultiSegCPUTest
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 10 sub-compilation(s) to finish...
-Compiled 24 Verilog Units
+Waiting for 12 sub-compilation(s) to finish...
+Compiled 25 Verilog Units
 Built simulation executable C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTest_isim_beh.exe
-Fuse Memory Usage: 34060 KB
-Fuse CPU Usage: 796 ms
+Fuse Memory Usage: 33760 KB
+Fuse CPU Usage: 780 ms

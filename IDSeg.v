@@ -54,7 +54,7 @@ module IDSeg(
     assign Imm = {((imm_s && IR[15]) ? 16'hffff:16'h0) , IR[15:0]};
 
     RegHeap regs(
-        .clk(clk),
+        .clk(~clk),
         .rst(rst),
         .addrA(IR[25:21]),
         .addrB(IR[20:16]),

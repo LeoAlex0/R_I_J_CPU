@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="InstROM">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2019-12-30T12:8:17</timestamp>
+    <timestamp>2019-12-30T14:35:15</timestamp>
     <pin polarity="Input" x="0" y="80" name="addra[5:0]" />
     <pin polarity="Input" x="0" y="272" name="clka" />
     <pin polarity="Output" x="576" y="80" name="douta[31:0]" />

@@ -34,7 +34,7 @@ module EXSeg(
     output [31:0] IRo
     );
     
-    reg [31:0] A, B, IR, Imm;
+    reg [31:0] A, B, IR, Imm, NPC;
     wire [2:0] ALU_OP;
     wire [5:0] opcode, funct;
     wire isALUR, isBranch;
@@ -82,11 +82,13 @@ module EXSeg(
             A <= 32'b0;
             B <= 32'b0;
             Imm <= 32'b0;
+            NPC <= 32'b0;
         end else begin
             IR <= IRi;
             A <= Ai;
             B <= Bi;
             Imm <= Immi;
+            NPC <= NPCi;
         end
     end
 

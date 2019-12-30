@@ -8,10 +8,10 @@
 <msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPU.v" Line 50: Port <arg fmt="%s" index="1">opcode</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" Line 33: Port <arg fmt="%s" index="1">funct</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" Line 31: Port <arg fmt="%s" index="1">write</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" Line 45: Port <arg fmt="%s" index="1">funct</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/hazard.v" Line 37: Port <arg fmt="%s" index="1">read0</arg> is not connected to this instance
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/codgi/Documents/GitHub/R_I_J_CPU/InsAnalyser.v" Line 63: Port <arg fmt="%s" index="1">ZF</arg> is not connected to this instance

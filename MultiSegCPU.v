@@ -55,7 +55,7 @@ module MultiSegCPU(
     IFSeg IFSeg_inst (
         .clk(clk), 
         .rst(rst),
-        .stall(stall),
+        .stall(stall || hasHazard),
         .cond(cond_IF), 
         .condNPC(ALUo_EX), 
         .NPC(NPC_IF), 
@@ -64,18 +64,22 @@ module MultiSegCPU(
         .PCo(PC)
     );
     
-    assign IR_IFF = hasHazard ? 32'hFFFF_FFFF : IR_IF;
+    assign IR_IFF = (hasHazard || | cnt) ? 32'hFFFF_FFFF : IR_IF;
     
     reg [1:0] cnt;
     initial cnt <= 2'b00;
     
     assign stall = | cnt;
-    always @ (posedge clk or posedge rst) begin
-        if (hasHazard) begin
-            cnt <= 2'b10;
-        end
-        if (| cnt) begin
-            cnt <= cnt - 1;
+    always @ (negedge clk or posedge rst) begin
+        if (rst) begin
+            cnt <= 2'b00;
+        end else begin
+            if (hasHazard) begin
+                cnt <= 2'b10;
+            end
+            if (| cnt) begin
+                cnt <= cnt - 1;
+            end
         end
     end    
     
