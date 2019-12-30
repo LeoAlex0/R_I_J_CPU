@@ -25,7 +25,8 @@ module ExModule(
     output [4:0] addrB
     );
 
-    reg [2:0] head,tail,iter;   // 队列头尾
+    integer iter;
+    reg [2:0] head,tail;   // 队列头尾
     reg [31:0] v[1:0][7:0];     // 待定操作数
     reg [4:0]  p[1:0][7:0];     // 待定数寄存器
     reg        s[1:0][7:0];     // 操作数就位
