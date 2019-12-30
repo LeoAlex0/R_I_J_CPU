@@ -21,15 +21,45 @@
 
 module hazard(
     input [31:0] IR_IF,
-    input [31:0] IR_ID,
+	 input clk,
     output hasHazard
     );
 
-    wire [5:0] opcode_IF, opcode_ID;
-    wire [4:0] rs_IF, rs_ID, rt_IF, rt_ID;
+    wire [5:0] opcode_IF;
+    wire [4:0] rs_IF, rt_IF;
     wire isLoad_IF, isStore_IF, isBranch_IF, isALUR_IF, isALUImm_IF;
-    wire isLoad_ID;
     
+	 integer regCounter,memCounter;
+	 reg regCounterEnable,memCounterEnable;
+	 
+	 wire isRegRead,isRegWrite,isMemRead,isMemWrite;
+	 assign isRegRead = 1'b1;
+	 assign isRegWrite = isALUR_IF | isALUImm_IF;
+	 assign isMemRead = isLoad_IF;
+	 assign isMemWrite = isStore_IF;
+	 
+	 initial begin
+		regCounter = 0;
+		memCounter = 0;
+		regCounterEnable = 1'b0;
+		memCounterEnable = 1'b0;
+	 end
+	 
+	 assign hasHazard = (regCounterEnable == 1'b1 && regCounter != 0 || memCounterEnable == 1'b1 && memCounter != 0)?1'b1:1'b0;
+	 
+	 always @ (negedge clk or posedge clk) begin
+		//=====counter--;=======
+		regCounter = (regCounter > 0)?regCounter-1:0;
+		memCounter = (memCounter > 0)?memCounter-1:0;
+		regCounterEnable <= (regCounter > 0)?regCounterEnable | isRegRead:1'b0;
+		memCounterEnable <= (memCounter > 0)?memCounterEnable | isMemWrite:1'b0;
+		
+		if(isRegWrite) regCounter = 3;
+		if(isMemRead) memCounter = 2;
+	 
+	 
+	 end
+	 
     InsAnalyser anysr_IF (
         .IR(IR_IF), 
         .opcode(opcode_IF), 
@@ -41,18 +71,5 @@ module hazard(
         .isALUR(isALUR_IF), 
         .isALUImm(isALUImm_IF)
     );
-    
-    InsAnalyser anysr_ID (
-        .IR(IR_ID), 
-        .opcode(opcode_ID), 
-        .rs(rs_ID), 
-        .rt(rt_ID), 
-        .isLoad(isLoad_ID)
-    );
-    
-    assign hasHazard = ((isLoad_ID && isALUR_IF && rt_ID == rs_IF) 
-                    || (isLoad_ID && isALUR_IF && rt_ID == rt_IF)
-                    || (isLoad_ID && (isLoad_IF || isStore_IF || isALUImm_IF || isBranch_IF) && rt_ID == rs_IF)
-                    ) ? 1'b1 : 1'b0;
 
 endmodule
