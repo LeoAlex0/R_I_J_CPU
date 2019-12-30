@@ -40,8 +40,8 @@ module MultiSegCPU(
     
     // Check and process hazards
     hazard hzd (
+			.clk(clk),
         .IR_IF(IR_IF), 
-        .IR_ID(lastIR_IF), 
         .hasHazard(hasHazard)
     );
     
