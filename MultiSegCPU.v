@@ -33,7 +33,7 @@ module MultiSegCPU(
     wire [31:0] IR_IF, lastIR_IF, IR_IFF, IR_ID, IR_EX, IR_MEM;
     wire [31:0] A_ID, B_ID, Imm_ID, B_EX, ALUo_EX, ALUo_MEM, LMD_MEM, WB_Data;
     wire [4:0] WB_Addr;
-    wire cond_IF, cond_EX, WBFlag, hasHazard;
+    wire cond_IF, cond_EX, WBFlag, hasHazard, stall;
    
     assign F = ALUo_EX;
     assign Mem = LMD_MEM;
@@ -55,7 +55,7 @@ module MultiSegCPU(
     IFSeg IFSeg_inst (
         .clk(clk), 
         .rst(rst),
-        .stall(hasHazard),
+        .stall(stall),
         .cond(cond_IF), 
         .condNPC(ALUo_EX), 
         .NPC(NPC_IF), 
@@ -65,6 +65,19 @@ module MultiSegCPU(
     );
     
     assign IR_IFF = hasHazard ? 32'hFFFF_FFFF : IR_IF;
+    
+    reg [1:0] cnt;
+    initial cnt <= 2'b00;
+    
+    assign stall = | cnt;
+    always @ (posedge clk or posedge rst) begin
+        if (hasHazard) begin
+            cnt <= 2'b10;
+        end
+        if (| cnt) begin
+            cnt <= cnt - 1;
+        end
+    end    
     
     // IDSeg
     IDSeg IDSeg_inst (

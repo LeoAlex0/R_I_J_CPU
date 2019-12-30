@@ -1,13 +1,13 @@
 Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTest_isim_beh.exe -prj C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTest_beh.prj work.MultiSegCPUTest work.glbl 
 ISim P.20131013 (signature 0x7708f090)
-Number of CPUs detected in this system: 8
-Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/ipcore_dir/RAM.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/ipcore_dir/InstROM.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/Controller.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/SimpleALU.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/RegHeap.v" into library work
+Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/ipcore_dir/RAM.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/InstGetter.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/InsAnalyser.v" into library work
 Analyzing Verilog file "C:/Users/codgi/Documents/GitHub/R_I_J_CPU/WBSeg.v" into library work
@@ -55,8 +55,8 @@ Compiling module MultiSegCPU
 Compiling module MultiSegCPUTest
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
+Waiting for 10 sub-compilation(s) to finish...
 Compiled 24 Verilog Units
 Built simulation executable C:/Users/codgi/Documents/GitHub/R_I_J_CPU/MultiSegCPUTest_isim_beh.exe
-Fuse Memory Usage: 34500 KB
-Fuse CPU Usage: 671 ms
+Fuse Memory Usage: 34060 KB
+Fuse CPU Usage: 796 ms

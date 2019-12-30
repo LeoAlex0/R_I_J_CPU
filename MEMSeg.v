@@ -37,9 +37,9 @@ module MEMSeg(
 	reg dev_null;
 	
 	initial begin
-		B = 0;
-		ALUo_In = 0;
-		IR = 32'hFFFF_FFFF;
+		B <= 0;
+		ALUo_In <= 0;
+		IR <= 32'hFFFF_FFFF;
 	end
 	
 	assign IR_Out = IR;
@@ -81,7 +81,7 @@ module MEMSeg(
     RAM memory (
         .clka(~clk), // input clka
         .wea(isStore && !isNop), // input [0 : 0] wea
-        .addra(ALUo_In[15:2]), // input [13 : 0] addra
+        .addra(ALUo_In_i[13:0]), // input [13 : 0] addra
         .dina(B), // input [31 : 0] dina
         .douta(LMD) // output [31 : 0] douta
     );
